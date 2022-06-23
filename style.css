@@ -1,0 +1,23 @@
+*{
+    margin:0;
+}
+
+.container{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "header header"
+    "main main"
+    "main main"
+    "footer footer";
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 6vw;
+
+}
