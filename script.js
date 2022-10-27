@@ -1,32 +1,40 @@
-function computer_play(max) {
-    let result = Math.floor(Math.random() * max);
-    if (result == 0){
-        return "rock";
-    }else if(result == 1){
-        return "paper";
-    }else{
-        return "scissors";
-    }
+function game(){
+  for (let i = 0; i < 5; i++){
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+let randnum = getRandomInt(3);
+
+function getComputerChoice(){
+  if(randnum == 1){
+    return "scissors"
+  }else if(randnum == 2){
+    return "rock"
+  }else{
+    return "paper"
+  };
+};
+console.log(getComputerChoice());
+
+let getUserChoice = prompt();
+
+
+function playRound(getComputerChoice,getUserChoice){
+  if(getUserChoice == "rock" && getComputerChoice == "scissors"){
+    console.log("User Wins!");
+  }else if(getUserChoice == "paper" && getComputerChoice == "rock"){
+    console.log("User Wins");
+  }else if(getUserChoice == "scissors" && getComputerChoice == "paper"){
+    console.log("User Wins");
+  }else if(getUserChoice == getComputerChoice){
+    console.log("Draw")
+  }else{
+    console.log("Computer Wins");
   }
-  
-function player_play(){
-    var choice = prompt();
-}
+};
 
-function game(computer_play,player_play){
-    let result = Math.floor(Math.random() * 3);
-    var choice = prompt();
-    if (result == "rock" && choice == "scissors"){
-        console.log("computer wins");
-    }else if(result == "scissors" && choice == "paper"){
-        console.log("computer wins");
-    }else if(result == "paper" && choice == "rock"){
-        console.log("computer wins");
-    }else if(result === choice){
-        console.log("Tie");
-    }else{
-        console.log("player wins");
-    }
-}
+playRound(getComputerChoice(),getUserChoice);
+}};
 
-console.log(game(computer_play()))
+game();
