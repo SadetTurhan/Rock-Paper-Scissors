@@ -1,40 +1,76 @@
+let userscore = 0;
+let compscore = 0;
+let getUserChoice = [];
+let ComputerChoice = [];
 function game(){
-  for (let i = 0; i < 5; i++){
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-let randnum = getRandomInt(3);
 
 function getComputerChoice(){
+  function getRandomInt(max){
+    return Math.floor(Math.random() * max);
+  }
+  
+  var randnum = getRandomInt(3);
   if(randnum == 1){
-    return "scissors"
+    ComputerChoice.pop();
+    ComputerChoice.push("scissors");
   }else if(randnum == 2){
-    return "rock"
+    ComputerChoice.pop();
+    ComputerChoice.push("rock");
   }else{
-    return "paper"
+    ComputerChoice.pop();
+    ComputerChoice.push("paper");
   };
 };
-console.log(getComputerChoice());
 
-let getUserChoice = prompt();
+let rockchoice = document.getElementById("rock");
+rockchoice.addEventListener("click",function(){
+  getUserChoice.pop();
+  getUserChoice.push("rock");
+  playRound(getComputerChoice(),getUserChoice);
+  refreshscore();
+});
+let paperchoice = document.getElementById("paper");
+paperchoice.addEventListener("click",function(){
+  getUserChoice.pop();
+  getUserChoice.push("paper");
+  playRound(getComputerChoice(),getUserChoice);
+  refreshscore();
+});
+let scissorschoice = document.getElementById("scissors");
+scissorschoice.addEventListener("click",function(){
+  getUserChoice.pop();
+  getUserChoice.push("scissors");
+  playRound(getComputerChoice(),getUserChoice);
+  refreshscore();
+});
 
 
 function playRound(getComputerChoice,getUserChoice){
-  if(getUserChoice == "rock" && getComputerChoice == "scissors"){
-    console.log("User Wins!");
-  }else if(getUserChoice == "paper" && getComputerChoice == "rock"){
-    console.log("User Wins");
-  }else if(getUserChoice == "scissors" && getComputerChoice == "paper"){
-    console.log("User Wins");
-  }else if(getUserChoice == getComputerChoice){
-    console.log("Draw")
+  if(getUserChoice == "rock" && ComputerChoice == "scissors"){
+    userscore += 1;
+  }else if(getUserChoice == "paper" && ComputerChoice == "rock"){
+    userscore += 1;
+  }else if(getUserChoice == "scissors" && ComputerChoice == "paper"){
+    userscore += 1;
+  }else if(getUserChoice == ComputerChoice){
+    console.log("Draw");
   }else{
-    console.log("Computer Wins");
+    compscore += 1;
   }
 };
 
-playRound(getComputerChoice(),getUserChoice);
-}};
+const computerchoice = document.getElementById("cscore");
+const forcompchoice = document.createElement("div");
+computerchoice.appendChild(forcompchoice);
+
+const userchoice = document.getElementById("score");
+const foruserchoice = document.createElement("div");
+userchoice.appendChild(foruserchoice);
+
+function refreshscore(){
+foruserchoice.innerText = userscore;
+forcompchoice.innerText = compscore;
+};
+};
 
 game();
