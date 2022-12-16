@@ -62,9 +62,10 @@ function playRound(getComputerChoice,getUserChoice){
 const computerchoice = document.getElementById("cscore");
 const forcompchoice = document.createElement("div");
 computerchoice.appendChild(forcompchoice);
-
+forcompchoice.innerText = 0;
 const userchoice = document.getElementById("score");
 const foruserchoice = document.createElement("div");
+foruserchoice.innerText = 0;
 userchoice.appendChild(foruserchoice);
 
 function refreshscore(){
