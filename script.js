@@ -57,6 +57,10 @@ function playRound(getComputerChoice,getUserChoice){
   }else{
     compscore += 1;
   }
+  const resetButton = document.getElementById("reset");
+ 
+  resetButton.addEventListener("click",resetScore);
+  
 };
 
 const computerchoice = document.getElementById("cscore");
@@ -67,11 +71,21 @@ const userchoice = document.getElementById("score");
 const foruserchoice = document.createElement("div");
 foruserchoice.innerText = 0;
 userchoice.appendChild(foruserchoice);
+const liveScore = document.getElementById("liveScore");
+const forLiveScore = document.createElement("div");
+liveScore.innerText = "Start!";
+liveScore.appendChild(forLiveScore);
 
 function refreshscore(){
-foruserchoice.innerText = userscore;
-forcompchoice.innerText = compscore;
-};
+  foruserchoice.innerText = userscore;
+  forcompchoice.innerText = compscore;
+  };
+  function resetScore(){
+    userscore = 0;
+    compscore = 0;
+    foruserchoice.innerText = 0;
+    forcompchoice.innerText = 0;
+  }
 };
 
 game();
