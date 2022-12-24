@@ -36,13 +36,13 @@ a{
     margin-left: 44em;
     font-family: 'Courier New', Courier, monospace;
 }
-#score,#cscore{
+#score,#cscore,#liveScore{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     text-align: center;
     margin-top: 1%;
 }
-button{
+#rock,#paper,#scissors{
     display: inline-block;
     width: 10em;
     height: 5em;
@@ -51,7 +51,13 @@ button{
     background-color: rgba(27, 104, 33, 0.521);
     flex-wrap: wrap;
 }
+#reset{
+    width: 5em;
+    height: 3em;
+    margin-left: 48%;
+    background-color: rgba(153, 13, 13, 0.548);
 
+}
 footer{
     margin-top: 10%;
     margin-left: 24%;
