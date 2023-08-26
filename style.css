@@ -2,58 +2,63 @@
     margin:0;
 }
 body{
-    background-color: #fffffffd;
-}
-.top-of-page{
-    background-color: #3f73bd3b;
-    height: 120px;
+    background-color: #e9d758;
 }
 header{
-    background-color: rgba(27, 104, 33, 0.521);
-    height: 25%;
-    width: 100%;
-    margin-top: -1%;
-}
-.container{
-    width: 100%;
-    height: 100%;
-}
-h1{
-    font-size: 3em;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgba(14, 87, 14, 0.541);
-    padding-top: 15px;
-}
-a{
-    font-size: 2em;
-    text-align: end;
-    margin-left: 44em;
-    font-family: 'Courier New', Courier, monospace;
-}
-#score,#cscore,#liveScore{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 1%;
-}
-#rock,#paper,#scissors{
-    display: inline-block;
-    width: 10%;
-    height: 10%;
-    margin: auto auto auto auto;
-    border-radius: 12%;
-    flex-wrap: wrap;
     margin-top: 2%;
+    font-size: 18px;
 }
-#reset{
-    width: 30%;
-    height: 100px;
-    margin: 10% 35% 0 35%;
+main{
+    width: 60%;
+    background-color: #ff8e72;
+    margin-left: 20%;
+    margin-top: 3vh;
+    height: 80vh;
+    color: black;
+    border: 2px solid #2ebfa5;
+}
+.score-board{
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    border: 2px solid #e9d758;
+    width: 50%;
+    background-color: #2ebfa5;
+}
+.score-text-area{
+    margin: 10%;
+    font-size: 18px;
+}
+.score-number-area{
+    margin: 15%;
+    font-size: 24px;
+}
+.score-board-under{
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    border: 2px solid #e9d758;
+    width: 50%;
+    background-color: #2ebfa5;
+}
 
+.button-area{
+    display: flex;
+    justify-content: center;
 }
-footer{
-    margin-top: 10%;
-    margin-left: 24%;
-    font-size: 10px;
+.choice-button{
+    width: 20.5vh;
+    margin-top: 5%;
+    border: 2px solid #e9d758;
+    height: 15vh;
+    background-color: #2ebfa5;
+    font-size: 16px;
+}
+.choice-button:hover{
+    width: 21vh;
+    height: 16vh;
+    background-color: #289e89;
 }
