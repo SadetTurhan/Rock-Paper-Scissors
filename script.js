@@ -1,91 +1,63 @@
-let userscore = 0;
-let compscore = 0;
-let getUserChoice = [];
-let ComputerChoice = [];
-function game(){
+//user and computer scores
+var userScore = 0;
+var computerScore = 0;
+let computerChoice = [];
+let userChoice = [];
 
+//scoreboard matching
+var userScoreArea = document.getElementById("user-score-area");
+var computerScoreArea = document.getElementById("computer-score-area");
+function changeScoreTable(){
+  userScoreArea.innerHTML = `<p>${userScore}</p>`;
+  computerScoreArea.innerHTML = `<p>${computerScore}</p>`;
+}
+
+//get choice functions
 function getComputerChoice(){
-  function getRandomInt(max){
-    return Math.floor(Math.random() * max);
-  }
-  
-  var randnum = getRandomInt(3);
-  if(randnum == 1){
-    ComputerChoice.pop();
-    ComputerChoice.push("scissors");
-  }else if(randnum == 2){
-    ComputerChoice.pop();
-    ComputerChoice.push("rock");
+  var computerNumber = Math.floor(Math.random() * 3);
+  if(computerNumber == 0){
+    computerChoice.unshift("rock")
+  }else if(computerNumber == 1){
+    computerChoice.unshift("paper")
   }else{
-    ComputerChoice.pop();
-    ComputerChoice.push("paper");
-  };
-};
-
-let rockchoice = document.getElementById("rock");
-rockchoice.addEventListener("click",function(){
-  getUserChoice.pop();
-  getUserChoice.push("rock");
-  playRound(getComputerChoice(),getUserChoice);
-  refreshscore();
-});
-let paperchoice = document.getElementById("paper");
-paperchoice.addEventListener("click",function(){
-  getUserChoice.pop();
-  getUserChoice.push("paper");
-  playRound(getComputerChoice(),getUserChoice);
-  refreshscore();
-});
-let scissorschoice = document.getElementById("scissors");
-scissorschoice.addEventListener("click",function(){
-  getUserChoice.pop();
-  getUserChoice.push("scissors");
-  playRound(getComputerChoice(),getUserChoice);
-  refreshscore();
-});
-
-
-function playRound(getComputerChoice,getUserChoice){
-  if(getUserChoice == "rock" && ComputerChoice == "scissors"){
-    userscore += 1;
-  }else if(getUserChoice == "paper" && ComputerChoice == "rock"){
-    userscore += 1;
-  }else if(getUserChoice == "scissors" && ComputerChoice == "paper"){
-    userscore += 1;
-  }else if(getUserChoice == ComputerChoice){
-    console.log("Draw");
+    computerChoice.unshift("scissors")
+  }
+}
+  function getRock(){
+    userChoice.unshift("rock")
+  }
+  function getPaper(){
+    userChoice.unshift("paper")
+  }
+  function getScissors(){
+    userChoice.unshift("scissors")
+  }
+//game rounds
+function round(){
+  getComputerChoice()
+  if(userChoice[0] == "rock" && computerChoice[0] == "scissors"){
+    userScore += 1;
+    changeScoreTable()
+  }else if(userChoice[0] == "paper" && computerChoice[0] == "rock"){
+    userScore += 1;
+    changeScoreTable()
+  }else if(userChoice[0] == "scissors" && computerChoice[0] == "paper"){
+    userScore += 1;
+    changeScoreTable()
+  }else if(userChoice[0] == computerChoice[0]){
+    console.log("draw")
   }else{
-    compscore += 1;
+    computerScore += 1;
+    changeScoreTable()
   }
-  const resetButton = document.getElementById("reset");
- 
-  resetButton.addEventListener("click",resetScore);
-  
-};
-
-const computerchoice = document.getElementById("cscore");
-const forcompchoice = document.createElement("div");
-computerchoice.appendChild(forcompchoice);
-forcompchoice.innerText = 0;
-const userchoice = document.getElementById("score");
-const foruserchoice = document.createElement("div");
-foruserchoice.innerText = 0;
-userchoice.appendChild(foruserchoice);
-const liveScore = document.getElementById("liveScore");
-const forLiveScore = document.createElement("div");
-liveScore.innerText = "Start!";
-liveScore.appendChild(forLiveScore);
-
-function refreshscore(){
-  foruserchoice.innerText = userscore;
-  forcompchoice.innerText = compscore;
-  };
-  function resetScore(){
-    userscore = 0;
-    compscore = 0;
-    foruserchoice.innerText = 0;
-    forcompchoice.innerText = 0;
-  }
-};
-
-game();
+}
+///button selectors
+let rockButton = document.getElementById("rock-button");
+rockButton.addEventListener("click",getRock);
+rockButton.addEventListener("click",round);
+let paperButton = document.getElementById("paper-button");
+paperButton.addEventListener("click",getPaper);
+paperButton.addEventListener("click",round);
+let scissorsButton = document.getElementById("scissors-button");
+scissorsButton.addEventListener("click",getScissors)
+scissorsButton.addEventListener("click",round)
